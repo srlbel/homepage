@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+  </head>
+
+  <body>
+    <main class="main-container">
+      <img src="./assets/logo.png" />
+
+      <div class="card">
+        <h1 onclick="toggleSelection(this)">school</h1>
+        <div class="content">
+          <ul>
+            <li>mail</li>
+            <li>class</li>
+            <li>system</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1 onclick="toggleSelection(this)">ai</h1>
+        <div class="content closed">
+          <ul>
+            <li>chatgpt</li>
+            <li>claude</li>
+            <li>gemini</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1 onclick="toggleSelection(this)">music</h1>
+        <div class="content closed">
+          <ul>
+            <li>youtube</li>
+            <li>spotify</li>
+            <li>sm playlist ¿?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1 onclick="toggleSelection(this)">stuff</h1>
+        <div class="content closed">
+          <ul>
+            <li>github</li>
+            <li>hackernews</li>
+            <li>x</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    todo: - replace claude logo 💀 - change colors - style better
+  </body>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: monospace;
+      font-size: large;
+
+      background-color: #fff4ed;
+      color: #1d1d1d;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 2rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 10rem;
+      gap: 1rem;
+    }
+
+    .card h1 {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      background-color: #e15b73;
+      margin: 0;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .content {
+      width: 200px;
+      overflow: hidden;
+      transition: width 0.3s ease;
+    }
+
+    .content.closed {
+      width: 0;
+      padding: 0;
+    }
+
+    .content ul {
+      list-style: none;
+      padding: 1rem;
+      margin: 0;
+      text-align: left;
+    }
+
+    .content li {
+      margin: 0.3rem 0;
+    }
+
+    img {
+      max-width: 100px;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <script>
+    function toggleSelection(el) {
+      const clickedContent = el.nextElementSibling;
+      const allContents = document.querySelectorAll(".content");
+
+      allContents.forEach((content) => {
+        if (content !== clickedContent) {
+          content.classList.add("closed");
+        }
+      });
+
+      clickedContent.classList.toggle("closed");
+    }
+  </script>
+</html>
