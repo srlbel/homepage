@@ -63,7 +63,6 @@
       height: 100%;
       margin: 0;
       font-family: monospace;
-      font-size: large;
 
       background-color: #fff4ed;
       color: #1d1d1d;
@@ -131,6 +130,15 @@
     function toggleSelection(el) {
       const clickedContent = el.nextElementSibling;
       const allContents = document.querySelectorAll(".content");
+      const openContents = Array.from(allContents).filter(
+        (c) => !c.classList.contains("closed")
+      );
+
+      if (
+        !clickedContent.classList.contains("closed") &&
+        openContents.length === 1
+      )
+        return;
 
       allContents.forEach((content) => {
         if (content !== clickedContent) {
